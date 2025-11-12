@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const FrequencyResponse = () => { const [measurements, setMeasurements] = useState([ { frequency: '50Hz', vout: '896', enabled: true }, { frequency: '100Hz', vout: '1300', enabled: true }, { frequency: '500Hz', vout: '3180', enabled: true }, { frequency: '1KHz', vout: '3560', enabled: true }, { frequency: '5KHz', vout: '3840', enabled: true }, { frequency: '10KHz', vout: '3880', enabled: true}, { frequency: '20KHz', vout: '3880', enabled: true }, { frequency: '50KHz', vout: '3840', enabled: true }, { frequency: '100KHz', vout: '3880', enabled: true }, { frequency: '200KHz', vout: '3840', enabled: true }, { frequency: '500KHz', vout: '3440', enabled: true }, { frequency: '700KHz', vout: '2220', enabled: true }, { frequency: '1MHz', vout: '1570', enabled: true }, { frequency: '2MHz', vout: '1170', enabled: true }, { frequency: '3MHz', vout: '954', enabled: true }, { frequency: '4MHz', vout: '816', enabled: true }, ]);
