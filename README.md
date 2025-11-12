@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+# RC Coupled CE Amplifier - Interactive Analysis Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive web application for analyzing RC Coupled Common Emitter (CE) Transistor Amplifier circuits. This project is designed for **Experiment 6** - analyzing frequency response, DC bias conditions, and signal handling capacity.
 
-## Available Scripts
+## 🎯 Features
 
-In the project directory, you can run:
+- **Interactive Circuit Diagram**: Animated SVG visualization of the RC Coupled CE amplifier
+- **DC Bias Measurements**: Input and validate VCE, VBE, and IC values
+- **Frequency Response Analysis**: 
+  - Select up to 5 frequencies from 16 options (50Hz - 4MHz)
+  - Automatic gain calculation (Vout/Vin and dB)
+  - Live frequency response curve plotting
+  - Bandwidth calculation (f2 - f1)
+- **Signal Handling Capacity**: Measure maximum input before distortion
+- **Data Export**: Download results as text file
+- **Beautiful UI**: Gradient backgrounds, animations, and responsive design
 
-### `npm start`
+## 📁 Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+rc-coupled-ce-amplifier/
+├── src/
+│   ├── components/
+│   │   ├── CircuitDiagram.jsx    # Circuit visualization component
+│   │   ├── DCBias.jsx             # DC bias measurements component
+│   │   └── FrequencyResponse.jsx  # Frequency response analysis component
+│   ├── App.jsx                    # Main application component
+│   ├── main.jsx                   # Application entry point
+│   └── index.css                  # Global styles with Tailwind
+├── index.html                     # HTML template
+├── package.json                   # Project dependencies
+├── vite.config.js                 # Vite configuration
+├── tailwind.config.js             # Tailwind CSS configuration
+└── README.md                      # This file
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (version 16 or higher)
+- npm or yarn package manager
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Create the project folder and navigate to it:**
+   ```bash
+   mkdir rc-coupled-ce-amplifier
+   cd rc-coupled-ce-amplifier
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Create the folder structure:**
+   ```bash
+   mkdir -p src/components
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Copy all the files** from the artifacts into their respective locations:
+   - `App.jsx` → `src/App.jsx`
+   - `CircuitDiagram.jsx` → `src/components/CircuitDiagram.jsx`
+   - `DCBias.jsx` → `src/components/DCBias.jsx`
+   - `FrequencyResponse.jsx` → `src/components/FrequencyResponse.jsx`
+   - `main.jsx` → `src/main.jsx`
+   - `index.css` → `src/index.css`
+   - `index.html` → `index.html`
+   - `package.json` → `package.json`
+   - `vite.config.js` → `vite.config.js`
+   - `tailwind.config.js` → `tailwind.config.js`
 
-### `npm run eject`
+4. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. **Open your browser** to `http://localhost:3000`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🔧 Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 1. Circuit Diagram Tab
+- View the complete RC Coupled CE amplifier circuit
+- See component values (R1=68K, R2=18K, Rc=1.2K, Re=1K)
+- View capacitor values (Cin=1µF, Cout=1µF, Ce=33µF)
 
-## Learn More
+### 2. DC Bias Tab
+- Enter VCE (expected: 3V - 9V)
+- Enter VBE (expected: 0.6V - 0.7V)
+- Enter IC (collector current in mA)
+- Automatic validation to verify transistor is in active region
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Frequency Response Tab
+- **Select 5 frequencies** by checking the boxes
+- Enter Vout measurements for each frequency
+- View automatic calculations:
+  - Voltage gain (Vout/Vin)
+  - Gain in dB (20 log Vout/Vin)
+- See live frequency response curve
+- Get bandwidth calculation (f2 - f1)
+- Enter signal handling capacity
+- Download results as text file
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📊 Circuit Specifications
 
-### Code Splitting
+- **Transistor**: BC548 (NPN)
+- **Supply Voltage**: 12V DC
+- **Input Signal**: 50mV peak-to-peak (constant)
+- **Resistors**: R1=68KΩ, R2=18KΩ, Rc=1.2KΩ, Re=1KΩ
+- **Capacitors**: Cin=1µF, Cout=1µF, Ce=33µF
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🎨 Technologies Used
 
-### Analyzing the Bundle Size
+- **React 18**: UI framework
+- **Vite**: Build tool and dev server
+- **Tailwind CSS**: Styling
+- **Recharts**: Interactive graphs
+- **Lucide React**: Icons
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📦 Build for Production
 
-### Making a Progressive Web App
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This creates an optimized production build in the `dist/` folder.
 
-### Advanced Configuration
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This is an educational project for electronics lab experiments. Feel free to modify and enhance!
 
-### Deployment
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is created for educational purposes.
 
-### `npm run build` fails to minify
+## 👨‍💻 Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created for Experiment 6: RC Coupled CE Transistor Amplifier Design
+
+---
+
+**Happy Experimenting! 🔬⚡**
